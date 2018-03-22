@@ -1,0 +1,113 @@
+<html>
+
+<head>
+  <title>InfoMan Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css/watson.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body class="ibm">
+
+  <div class="bx--loading-overlay" style="z-index:1">
+    <div data-loading class="bx--loading">
+      <svg class="bx--loading__svg" viewBox="-75 -75 150 150">
+      <title>Loading</title>
+      <circle cx="0" cy="0" r="37.5" />
+    </svg>
+    </div>
+  </div>
+
+  <div class="section group" style="z-index:0">
+
+    <div class="col span_12_of_12">
+      <div id="scrollingChat">
+
+      </div>
+      <div class="useful">
+        <ul>
+          <li>Was this answer helpful?</li>
+          <li><a href="#" id="helpful">Yes 🙂</a></li>
+          <li><a id="unhelpful" data-modal-target="#feedbackModal">No 🙁</a></li>
+        </ul </div>
+        <input id="text-input-1" type="text" class="bx--text-input" placeholder="Type a message" onkeydown="ConversationPanel.inputKeyDown(event, this)">
+      </div>
+
+      <div id="payload-request" class="payload"></div>
+      <div id="payload-response" class="payload"></div>
+
+    </div>
+
+
+    <div data-modal id="modal" class="bx--modal" tabindex="-1">
+      <div class="bx--modal-container">
+        <div class="bx--modal-header">
+          <p class="bx--modal-header__heading bx--type-beta">You are being redirected to a new page</p>
+          <button class="bx--modal-close" type="button" data-modal-close aria-label="close modal">
+        <svg class="bx--modal-close__icon" width="10" height="10" viewBox="0 0 10 10" fill-rule="evenodd">
+           <title>Close Modal</title>
+          <path d="M9.8 8.6L8.4 10 5 6.4 1.4 10 0 8.6 3.6 5 .1 1.4 1.5 0 5 3.6 8.6 0 10 1.4 6.4 5z"></path>
+        </svg>
+      </button>
+        </div>
+
+        <div class="bx--modal-content">
+          <p>You are being redirected to a helpdesk information page. If you would like to talk with a representative instead, you may call an agent at 1800-123-1234.</p>
+        </div>
+
+        <div class="bx--modal-footer">
+          <button class="bx--btn bx--btn--secondary cancel" type="button" data-modal-close>Cancel</button>
+          <a class="bx--btn bx--btn--primary redirect" type="button" data-modal-primary-focus>Continue</a>
+        </div>
+      </div>
+    </div>
+
+    <div data-modal id="feedbackModal" class="bx--modal" tabindex="-1">
+      <div class="bx--modal-container">
+        <div class="bx--modal-header">
+          <p class="bx--modal-header__heading bx--type-beta">Sorry about that! Tell us what's wrong</p>
+          <button class="bx--modal-close" type="button" data-modal-close aria-label="close modal">
+        <svg class="bx--modal-close__icon" width="10" height="10" viewBox="0 0 10 10" fill-rule="evenodd">
+           <title>Close Modal</title>
+          <path d="M9.8 8.6L8.4 10 5 6.4 1.4 10 0 8.6 3.6 5 .1 1.4 1.5 0 5 3.6 8.6 0 10 1.4 6.4 5z"></path>
+        </svg>
+      </button>
+        </div>
+
+        <div class="bx--modal-content">
+          <div class="bx--form-item">
+            <label for="question" class="bx--label">What was your question?</label>
+            <input id="question" type="text" class="bx--text-input" name="question" required/>
+          </div>
+          <br>
+          <div class="bx--form-item">
+            <label for="informationToGet" class="bx--label">What information were you trying to get?</label>
+            <input id="informationToGet" type="text" class="bx--text-input" name="informationToGet" required/>
+          </div>
+          <br>
+          <div class="bx--form-item">
+            <label for="comments" class="bx--label">(Optional) Got any other comments for us?</label>
+            <textarea id="comments" class="bx--text-area" name="comments" rows="3" cols="50"></textarea>
+          </div>
+        </div>
+
+        <div class="bx--modal-footer">
+          <button class="bx--btn bx--btn--secondary cancel" type="button" data-modal-close>Cancel</button>
+          <button class="bx--btn bx--btn--primary" id="submitFeedback" type="button" data-modal-primary-focus>Send feedback</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/carbon-components@7.25.0/scripts/carbon-components.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/conversation.js"></script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

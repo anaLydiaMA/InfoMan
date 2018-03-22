@@ -1,5 +1,12 @@
----
 applications:
  - name: infoman-frontend
+   command: npm start
+   path: .
    random-route: true
    memory: 64MB
+   instances: 1
+   services:
+   - conversation-service
+   - discovery-service
+   env:
+     NPM_CONFIG_PRODUCTION: false

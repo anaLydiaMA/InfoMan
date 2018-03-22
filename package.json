@@ -1,7 +1,7 @@
 {
-  "name": "get-started-node",
+  "name": "infoman-frontend",
   "main": "server.js",
-  "description": "An introduction to developing Node.js apps on the Bluemix platform",
+  "description": "Front-end for InfoMan - Modular Project",
   "version": "0.1.1",
   "private": false,
   "engines": {
@@ -12,15 +12,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IBM-Bluemix/get-started-node"
+    "url": "https://github.com/anaLydiaMA/InfoMan/tree/german"
   },
   "dependencies": {
     "body-parser": "^1.17.x",
     "cfenv": "^1.0.x",
     "cloudant": "1.9.x",
     "dotenv": "^4.0.0",
-    "express": "^4.15.x"
+    "express": "^4.15.x",
+    "watson-developer-cloud": "^2.31.1",
+    "carbon-components": "^8.1.8",
   },
-  "author": "IBM Corp",
+  "engines": {
+    "node": ">= 6.9.x",
+    "npm": "> 3.10.x"
+  },
+  "author": "Germán Alejandro Sandoval Rodríguez",
   "license": "Apache-2.0"
 }
