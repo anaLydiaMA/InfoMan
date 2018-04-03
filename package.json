@@ -1,6 +1,6 @@
 {
-  "name": "cognitive-bot",
-  "description": "A cognitive bot with hr capabilities",
+  "name": "infoman-bot",
+  "description": "A cognitive bot with student needs",
   "version": "0.1.1",
   "main": "server.js",
   "scripts": {
@@ -19,6 +19,8 @@
     "carbon-components": "^8.1.8",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
+    "express-handlebars": "*",
+    "q": "^1.4.1",
     "watson-developer-cloud": "^2.31.1"
   },
   "devDependencies": {

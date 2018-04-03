@@ -2,10 +2,7 @@ applications:
 - name: Cognitive Chatbot
   command: npm start
   path: .
-  memory: 256M
+  memory: 64MB
   instances: 1
-  services:
-  - conversation-service
-  - discovery-service
   env:
     NPM_CONFIG_PRODUCTION: false

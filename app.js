@@ -1,9 +1,3 @@
-/*
-*
-This code is the intellectual property of IBM GBS and is not to be used by non-GBS practitioners nor distributed outside of GBS engagements. For full usage guidelines refer to http://ibm.biz/innersourcing-consume-guidelines
-*
-*/
-
 'use strict';
 
 const express = require('express'); // app server
@@ -15,14 +9,21 @@ const urlencodedParser = bodyParser.urlencoded({
 
 const watson = require('watson-developer-cloud');
 const app = express();
+const exphbs = require('express-handlebars');
 
 // Bootstrap application settings
 app.use(express.static('./public')); // load UI from public folder
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
+app.use(bodyParser.urlencoded({ extended: true }));
+app.engine('.hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs'
 }));
+app.set('view engine', '.hbs');
 
+app.get('/infoman-admin', function(req, res) {
+  res.render('feed');
+})
 
 // Create the service wrapper
 let conversation = watson.conversation({
