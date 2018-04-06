@@ -1,0 +1,7 @@
+.notShownInitialClass{
+    display: none;
+}
+
+span{
+    text-transform: capitalize;
+}
