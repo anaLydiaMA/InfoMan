@@ -1,9 +1,3 @@
-/*
-*
-This code is the intellectual property of IBM GBS and is not to be used by non-GBS practitioners nor distributed outside of GBS engagements. For full usage guidelines refer to http://ibm.biz/innersourcing-consume-guidelines
-*
-*/
-
 let ConversationPanel = (function() {
   // let getInput = document.getElementById('textInput').val();
   let settings = {

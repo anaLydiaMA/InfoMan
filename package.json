@@ -20,6 +20,7 @@
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "express-handlebars": "*",
+    "lightbox2": "^2.10.0",
     "q": "^1.4.1",
     "watson-developer-cloud": "^2.31.1"
   },

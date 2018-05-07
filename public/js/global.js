@@ -1,9 +1,3 @@
-/*
-*
-This code is the intellectual property of IBM GBS and is not to be used by non-GBS practitioners nor distributed outside of GBS engagements. For full usage guidelines refer to http://ibm.biz/innersourcing-consume-guidelines
-*
-*/
-
 (function() {
 
   // Initialize all modules
@@ -12,6 +6,12 @@ This code is the intellectual property of IBM GBS and is not to be used by non-G
 
   //Sends requests to server when user clicks on buttons
   $('#scrollingChat').on('click', '.actionButton', function() {
+    // Disable prev buttons or clean whole page
+    // $("#scrollingChat").empty();
+    $('button').each(function() {
+      // $(this).attr('disabled', 'disabled');
+      $(this).remove();
+    });
     let latestResponse = Api.getResponsePayload();
     let context = latestResponse.context;
     let response = this.innerText;

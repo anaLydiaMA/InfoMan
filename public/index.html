@@ -1,21 +1,53 @@
 <html>
 
 <head>
-  <title>Info Man</title>
+  <title>InfoMan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="css/watson.min.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/app.css">
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color:
+    }
+  </style>
 </head>
 
 <body class="ibm">
 
+  <div class="modal" id="myModal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="presentation">
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    var modal = document.getElementById('myModal');
+    var img = document.getElementById('myImg');
+    var modalImg = document.getElementById('presentation');
+    var captionText = document.getElementById('caption');
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+  </script>
+
   <div class="bx--loading-overlay" style="z-index:1">
     <div data-loading class="bx--loading">
       <svg class="bx--loading__svg" viewBox="-75 -75 150 150">
-      <title>Loading</title>
+      <title>Cargando</title>
       <circle cx="0" cy="0" r="37.5" />
     </svg>
     </div>
@@ -24,25 +56,21 @@
   <div class="section group" style="z-index:0">
 
     <div class="col span_12_of_12">
-      <div id="scrollingChat">
-
-      </div>
+      <div id="scrollingChat"></div>
       <div class="useful">
         <!--<ul>
           <li>Was this answer helpful?</li>
           <li><a href="#" id="helpful">Yes 🙂</a></li>
           <li><a id="unhelpful" data-modal-target="#feedbackModal">No 🙁</a></li>
         </ul> </div>-->
-        <input id="text-input-1" type="text" class="bx--text-input" placeholder="¿En qué te puedo ayudar?" onkeydown="ConversationPanel.inputKeyDown(event, this)">
+        <input id="text-input-1" type="text" class="bx--text-input" placeholder="Escribe tu pregunta aquí" onkeydown="ConversationPanel.inputKeyDown(event, this)">
       </div>
 
       <div id="payload-request" class="payload"></div>
       <div id="payload-response" class="payload"></div>
-
     </div>
 
-
-    <div data-modal id="modal" class="bx--modal" tabindex="-1">
+    <!-- <div data-modal id="modal" class="bx--modal" tabindex="-1">
       <div class="bx--modal-container">
         <div class="bx--modal-header">
           <p class="bx--modal-header__heading bx--type-beta">You are being redirected to a new page</p>
@@ -63,9 +91,9 @@
           <a class="bx--btn bx--btn--primary redirect" type="button" data-modal-primary-focus>Continue</a>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div data-modal id="feedbackModal" class="bx--modal" tabindex="-1">
+    <!-- <div data-modal id="feedbackModal" class="bx--modal" tabindex="-1">
       <div class="bx--modal-container">
         <div class="bx--modal-header">
           <p class="bx--modal-header__heading bx--type-beta">Sorry about that! Tell us what's wrong</p>
@@ -99,7 +127,7 @@
           <button class="bx--btn bx--btn--primary" id="submitFeedback" type="button" data-modal-primary-focus>Send feedback</button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <script src="https://unpkg.com/carbon-components@7.25.0/scripts/carbon-components.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>

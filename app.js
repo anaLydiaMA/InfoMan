@@ -21,9 +21,10 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view engine', '.hbs');
 
+// Calls admin page for feed InfoMan
 app.get('/infoman-admin', function(req, res) {
   res.render('feed');
-})
+});
 
 // Create the service wrapper
 let conversation = watson.conversation({
@@ -48,21 +49,21 @@ app.post('/api/message', (req, res) => {
   });
 });
 
-app.post('/api/feedback', (req, res) => {
-  let question = req.body.question;
-  let informationToGet = req.body.informationToGet;
-  let comments = req.body.comments;
-  console.log('Got the the following info: ' + question, informationToGet, comments);
-
-  //Then do something with the feedback
-  res.status(200).json('Feedback has been posted')
-
-  /*
-  Other things that can be done in here include plugging into a DB for later retrieval,
-  connecting it with analytics, the possibilities are endless.
-  */
-
-})
+// Not Used
+// app.post('/api/feedback', (req, res) => {
+//   let question = req.body.question;
+//   let informationToGet = req.body.informationToGet;
+//   let comments = req.body.comments;
+//   console.log('Got the the following info: ' + question, informationToGet, comments);
+//
+//   //Then do something with the feedback
+//   res.status(200).json('Feedback has been posted')
+//
+//   /*
+//   Other things that can be done in here include plugging into a DB for later retrieval,
+//   connecting it with analytics, the possibilities are endless.
+//   */
+// });
 
 function updateMessage(res, data) {
   if (!data.output) {

@@ -1,9 +1,3 @@
-/*
-*
-This code is the intellectual property of IBM GBS and is not to be used by non-GBS practitioners nor distributed outside of GBS engagements. For full usage guidelines refer to http://ibm.biz/innersourcing-consume-guidelines
-*
-*/
-
 let Components = (function() {
 
   return {
@@ -271,7 +265,6 @@ let Components = (function() {
   }
 
   function renderButtons(buttons, newPayload) {
-    console.log(buttons)
     let messageArray = [];
     let buttonJson;
     buttons.forEach(function(currentLabel) {
@@ -306,7 +299,7 @@ let Components = (function() {
         } else {
           buttonJson = {
             'tagName': 'div',
-            'classNames': ['userButton', 'latest'],
+            'classNames': ['userButton', 'latest', 'answer'],
             'children': [{
               // <div class='message-inner'>
               'tagName': 'div',
