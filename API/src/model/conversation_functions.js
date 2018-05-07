@@ -14,10 +14,9 @@ const map = {
   "Calendario Oficial": "co",
   "Malla Curricular": "ma",
   "Prácticas Profesionales": "pp",
-  "Materias Optativas": "mo",
-  "Materias Especializantes": "me",
-  "Titulación": "t"
+  "Materias Optativas y Especializantes": "moe"
 }
+let availableAreas = [];
 
 var functions = (function() {
   var getIntents = function() {
@@ -88,6 +87,56 @@ var functions = (function() {
     });
   }
 
+  var getFatherNodes = function(){
+    return new Promise(function(fulfill,reject){
+      params.dialog_node = 'Bienvenido';
+      conversation.getDialogNode(params, function(err, initialNode) {
+      if (err) {
+        reject(404);
+      } else {
+        availableAreas = initialNode.context.areas;
+        let nodes = [];
+        conversation.listDialogNodes(params, function(err, response) {
+          if (err) { reject(404); }
+          else {
+            for(i in availableAreas){
+              for(j in response.dialog_nodes){
+                if(availableAreas[i] === response.dialog_nodes[j].title){
+                  nodes.push(response.dialog_nodes[j]);
+                }
+              }
+            }
+          fulfill(nodes);
+          }
+        });
+      }
+      });
+    })
+  }
+
+  var getForm = function() {
+    return new Promise(function(fulfill, reject) {
+      let format = [];
+      getFatherNodes().then(function(data) {
+        for(i in availableAreas){
+          for(j in data){
+            if(availableAreas[i] === data[j].title){
+              let variables = [];
+              let temp_json = data[j].context[map[data[j].title]];
+              for(x in temp_json){
+                variables.push({'field': x,'currentValue': temp_json[x]});
+              }
+              format.push({'area': data[j].title,'variables': variables});
+            }
+          }
+        }
+        fulfill(format);
+      }).catch(function(err) {
+        reject(err);
+      })
+    });
+  }
+
   var updateContextVariable = function(dialogNode, contextVariable) {
     return new Promise(function(fulfill, reject) {
       params.dialog_node = dialogNode;
@@ -106,34 +155,36 @@ var functions = (function() {
     });
   }
 
-  var getForm = function(availableAreas) {
+  var updateForm = function(newNode) {
     return new Promise(function(fulfill, reject) {
-      conversation.listDialogNodes(params, function(err, response) {
-        if (err) {
-          reject(404);
-        } else {
-          let format = [];
-          for(i in availableAreas){
-            for(j in response.dialog_nodes){
-              if(availableAreas[i] === response.dialog_nodes[j].title){
-                let variables = [];
-                let temp_json = response.dialog_nodes[j].context[map[response.dialog_nodes[j].title]];
-                for(x in temp_json){
-                  variables.push({
-                    'field': x,
-                    'currentValue': temp_json[x]
-                  });
-                }
-                format.push({
-                  'area': response.dialog_nodes[j].title,
-                  'variables': variables
-                });
+      if(newNode && newNode.variables && newNode.area){
+        let contextVariable = {};
+        let updatedNode = null;
+        getFatherNodes().then(function(allNodes) {
+          for(i in allNodes){
+            if(allNodes[i].title === newNode.area){
+              for(k in newNode.variables){
+                contextVariable[newNode.variables[k].field] = newNode.variables[k].currentValue;
               }
+              allNodes[i].context[map[allNodes[i].title]] = contextVariable;
+              updatedNode = allNodes[i];
+            }
           }
-        }
-        fulfill(format);
-        }
-      });
+          if(updatedNode != null){
+            updateContextVariable(updatedNode.dialog_node, updatedNode.context).then(function(response) {
+              fulfill(response);
+            }).catch(function(err) {
+              reject(500);
+            })
+          } else {
+            reject(404);
+          }
+        }).catch(function(err) {
+          reject(err);
+        })
+      } else {
+        reject(400);
+      }
     });
   }
 
@@ -143,7 +194,6 @@ var functions = (function() {
         workspace_id: params.workspace_id,
         alternate_intents: true,
         input: { 'text': question.text },
-
       }, function(err, response) {
         if (err) {
           reject(err);
@@ -155,13 +205,9 @@ var functions = (function() {
   };
 
   return {
-    'getIntents': getIntents,
-    'getEntities': getEntities,
-    'getDialog': getDialog,
-    'getDialogNode': getDialogNode,
     'getQuestions': getQuestions,
     'getForm': getForm,
-    'updateContextVariable': updateContextVariable,
+    'updateForm': updateForm,
     'askWatson': askWatson
   };
 
