@@ -1,102 +1,80 @@
-var tabsGroup = ["PMtab", "SStab", "COtab", "MOEtab", "MCtab"];
-var sectionsID = [];
+var section;
+var botData;
 
-/*$(document).ready(function(){
-    $("#"+tabsGroup[0]).click(function(){
-        cleanClasses();
-        $("#"+sections[0]).show();
-        $("#"+sections[0]).show();
-        $("#"+tabsGroup[0]).addClass("active");
-    });
-    $("#"+tabsGroup[1]).click(function(){
-        cleanClasses();
-        $("#"+sections[1]).show();
-        $("#"+tabsGroup[1]).addClass("active");
-    });
-    $("#"+tabsGroup[2]).click(function(){
-        cleanClasses();
-        $("#"+sections[2]).show();
-        $("#"+tabsGroup[2]).addClass("active");
-    });
-    $("#"+tabsGroup[3]).click(function(){
-        cleanClasses();
-        $("#"+sections[3]).show();
-        $("#"+tabsGroup[3]).addClass("active");
-    });
-    $("#"+tabsGroup[4]).click(function(){
-        cleanClasses();
-        $("#"+sections[4]).show();
-        $("#"+tabsGroup[4]).addClass("active");
-    });
+$(document).ready(function() {
+  $("#alert").hide();
+  $(".nav-link").click(function() {
+    $("#alert").hide();
+    section = $(this).attr("id");
+    $(this).addClass("active");
+    quitActive($(this).attr("id"));
+    getSection(section);
+  });
+  $("#0").click();
+});
 
-});*/
-
-function cleanClasses() {
-  for (var index = 0; index < tabsGroup.length; index++) {
-    $("#" + tabsGroup[index]).removeClass("active");
-    $("#" + sectionsID[index]).hide();
-    $("#" + sectionsID[index]).removeClass("notShownInitialClass");
+function quitActive(id) {
+  for (var index = 0; index < 6; index++) {
+    if (index != id) {
+      $("#" + index).removeClass("active");
+    }
   }
 }
 
-var data;
-$(document).ready(function() {
+function getSection(id) {
   $.ajax({
     type: "GET",
     dataType: "json",
     url: "https://infoman-backend.mybluemix.net/conversation/form",
     success: function(data) {
-      var indexAreas;
-      var indexVariables;
-      var sections = [];
-      var classNotShown = "notShownInitialClass";
-      for (indexAreas in data) {
-        sections[indexAreas] = data[indexAreas].area;
-        if (indexAreas == 0) {
-          classNotShown = "";
-        } else {
-          classNotShown = "notShownInitialClass";
-        }
-        $("#sections").append('<div id="' + indexAreas + '" class="row my-4 ' + classNotShown + '"><h3 class="col-xl-12">' + data[indexAreas].area + '</h3>');
-        sectionsID[indexAreas] = indexAreas;
-        for (indexVariables in data[indexAreas].variables) {
-          //if(data[indexAreas].variables.length != 0){
-          $("#" + indexAreas).append('<div class="col-xl-6 my-1"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text">' + data[indexAreas].variables[indexVariables].field.replace(/_/g, " ") + '</span></div>' + '<input type="url" class="form-control" value="' + data[indexAreas].variables[indexVariables].currentValue + '"></div></div>');
-          //$("#"+indexAreas).append('<input type="url" class="form-control" value="'+data[indexAreas].variables[indexVariables].currentValue+'">');
-          //console.log(data[indexAreas].variables[indexVariables]);
-          //}
-
-        }
+      botData = data;
+      $("#sections").replaceWith('<div class="row my-4" id="sections">' +
+        '<h3 class="col-xl-12">' + data[section].area + '</h3>');
+      for (indexVariables in data[id].variables) {
+        $("#sections").append('<div class="col-xl-6 my-1">' +
+          '<div class="input-group"><div class="input-group-prepend">' +
+          '<span class="input-group-text">' +
+          data[id].variables[indexVariables].field.replace(/_/g, " ") +
+          '</span>' +
+          '</div>' +
+          '<input type="text" class="form-control" value="' +
+          data[id].variables[indexVariables].currentValue + '" id="' +
+          data[id].variables[indexVariables].field.replace(/ /g, "_") + '"></div></div></div></div>');
       }
-      console.log(sections);
-      console.log(sectionsID);
+      $("#sections").append('<div class="col-xl-6 my-1"><button type="button" class="btn btn-primary"' +
+        'value="' + id + '">Enviar Cambios</button></div>');
+      $(".btn.btn-primary").click(function() {
+        sendJson($(this).attr('value'));
+      });
     }
   });
 
+}
 
-  $("#" + tabsGroup[0]).click(function() {
-    cleanClasses();
-    $("#" + sectionsID[0]).show();
-    $("#" + tabsGroup[0]).addClass("active");
-  });
-  $("#" + tabsGroup[1]).click(function() {
-    cleanClasses();
-    $("#" + sectionsID[1]).show();
-    $("#" + tabsGroup[1]).addClass("active");
-  });
-  $("#" + tabsGroup[2]).click(function() {
-    cleanClasses();
-    $("#" + sectionsID[2]).show();
-    $("#" + tabsGroup[2]).addClass("active");
-  });
-  $("#" + tabsGroup[3]).click(function() {
-    cleanClasses();
-    $("#" + sectionsID[3]).show();
-    $("#" + tabsGroup[3]).addClass("active");
-  });
-  $("#" + tabsGroup[4]).click(function() {
-    cleanClasses();
-    $("#" + sectionsID[4]).show();
-    $("#" + tabsGroup[4]).addClass("active");
-  });
-});
+function sendJson(number) {
+  var packageArea = new Object;
+
+  packageArea.area = botData[number].area;
+  packageArea.variables = [];
+  for (index in botData[number].variables) {
+    var variablesObject = new Object;
+    variablesObject.field = botData[number].variables[index].field;
+    variablesObject.currentValue = $("#" + botData[number].variables[index].field).val();
+    packageArea.variables.push(variablesObject);
+  }
+
+  $.ajax({
+    type: "PUT",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    data: JSON.stringify(packageArea),
+    url: "https://infoman-backend.mybluemix.net/conversation/update",
+    success: function() {
+      $("#alert").show();
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      console.log(xhr.status);
+      console.log(thrownError);
+    }
+  })
+};
