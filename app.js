@@ -21,10 +21,20 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view engine', '.hbs');
 
-// Calls admin page for feed InfoMan
-app.get('/infoman-admin', function(req, res) {
-  res.render('feed');
+app.get('/login', function(req, res) {
+  res.render('login');
 });
+
+app.post('/', function(req, res) {
+  var {user, password} = {user: req.body.username, password: req.body.password};
+  if (user == "admin" && password == "tributologia") res.render('feed');
+  else res.send("¿A dónde crees que vas?");
+});
+
+// Calls admin page for feed InfoMan
+// app.get('/infoman-admin', function(req, res) {
+//   res.render('feed');
+// });
 
 // Create the service wrapper
 let conversation = watson.conversation({
