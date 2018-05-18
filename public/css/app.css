@@ -28,9 +28,9 @@ a:hover,button:hover {
 .hide {
    display: none;
 }
-.answer {
+/* .answer {
   float: right;
-}
+} */
 .bx--tile .bx--btn--secondary {
   margin-top:10px;
   margin-left:5px;

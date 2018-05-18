@@ -299,7 +299,7 @@ let Components = (function() {
         } else {
           buttonJson = {
             'tagName': 'div',
-            'classNames': ['userButton', 'latest', 'answer'],
+            'classNames': ['userButton', 'latest'], // answer
             'children': [{
               // <div class='message-inner'>
               'tagName': 'div',

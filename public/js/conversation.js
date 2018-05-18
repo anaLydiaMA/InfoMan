@@ -167,6 +167,7 @@ let ConversationPanel = (function() {
   function inputKeyDown(event, inputBox) {
     // Submit on enter key, dis-allowing blank messages
     if (event.keyCode === 13 && inputBox.value || event.type == 'click' && inputBox.value) {
+      $('button').each(function() { $(this).remove(); });
       // Retrieve the context from the previous server response
       let context;
       let latestResponse = Api.getResponsePayload();
