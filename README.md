@@ -77,6 +77,7 @@ Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 ##
 :five:
+
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */user/list*| Returns the list of usernames registered on Database
