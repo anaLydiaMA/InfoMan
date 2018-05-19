@@ -63,7 +63,7 @@ Failed    | <kbd>400</kbd>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
-<kbd>GET</kbd> | */conversation/askWatson*| Returns Watson response to the specified question on body
+<kbd>POST</kbd> | */conversation/askWatson*| Returns Watson response to the specified question on body
 #### Request Body:
 ```
 {
@@ -75,4 +75,22 @@ Issue    | Status
 -------- | ---
 Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
+##
+:five:
+Method          | Path              | Description 
+--------------- | ------------------| -----------
+<kbd>POST</kbd> | */user/list*| Returns the list of usernames registered on Database
+#### Request Body:
+```
+{
+	"username": "name",
+	"password": "pass"
+}
+```
+#### Request Status:
+Issue    | Status
+-------- | ---
+Successful| <kbd>201</kbd>
+Failed    | <kbd>400</kbd>
+Unauthorized | <kbd>403</kbd>
 ##
