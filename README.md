@@ -1,7 +1,7 @@
 # InfoMan
 ## URL = https://infoman-backend.mybluemix.net
 ##
-## 1. 
+:heavy_check_mark: ## REQUEST: 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */conversation/form*| Returns conversation updatable values
@@ -19,7 +19,7 @@ Successful| <kbd>201</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-## 2. 
+### 2. 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */conversation/update*| Update specified values on conversation
@@ -46,7 +46,7 @@ Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-## 3.
+### 3.
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>GET</kbd> | */conversation/questions*| Returns all the conversation available questions
@@ -56,7 +56,7 @@ Issue    | Status
 Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 ##
-## 4.
+### 4.
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>GET</kbd> | */conversation/askWatson*| Returns Watson response to the specified question on body
