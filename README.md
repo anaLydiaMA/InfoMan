@@ -1,14 +1,18 @@
 # InfoMan
 ### URL = https://infoman-backend.mybluemix.net
-#### **PATH = /conversation/form**
-##### <i class="icon-pencil"></i> **POST**  ***RETURNS CONVERSATION FORM***
+##
+Method          | Path              | Description 
+--------------- | ------------------| -----------
+<kbd>POST</kbd> | /conversation/form| *RETURNS CONVERSATION FORM*
+##
+## body:
 ```
-body:
 {
 	"username": "name",
 	"password": "pass"
 }
 ```
+##
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
