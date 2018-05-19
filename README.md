@@ -21,6 +21,7 @@ Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
 :two:
+
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */conversation/update*| Update specified values on conversation
@@ -48,6 +49,7 @@ Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
 :three:
+
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>GET</kbd> | */conversation/questions*| Returns all the conversation available questions
@@ -58,6 +60,7 @@ Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 ##
 :four:
+
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>GET</kbd> | */conversation/askWatson*| Returns Watson response to the specified question on body
