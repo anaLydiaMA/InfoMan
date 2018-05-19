@@ -3,8 +3,7 @@
 ##
 Method          | Path              | Description 
 --------------- | ------------------| -----------
-<kbd>POST</kbd> | /conversation/form| *RETURNS CONVERSATION FORM*
-##
+<kbd>POST</kbd> | ***/conversation/form***| *Returns conversation updatable values*
 ## body:
 ```
 {
@@ -12,7 +11,6 @@ Method          | Path              | Description
 	"password": "pass"
 }
 ```
-##
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
