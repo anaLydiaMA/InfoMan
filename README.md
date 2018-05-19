@@ -1,7 +1,7 @@
 # InfoMan
 ### URL = https://infoman-backend.mybluemix.net
 ##
-* 
+1. 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */conversation/form*| Returns conversation updatable values
