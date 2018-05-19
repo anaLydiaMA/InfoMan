@@ -18,13 +18,14 @@ Successful| <kbd>201</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-### **PATH = /conversation/update**
-#### **[POST]**  UPDATES CONVERSATION FORM
+Method          | Path              | Description 
+--------------- | ------------------| -----------
+<kbd>POST</kbd> | */conversation/update*| Update specified values on conversation
+### Request Body:
 ```
-body:
 {
-	"username": "name",
-	"password": "pass",
+  "username": "name",
+  "password": "pass",
   "area": "new area",
   "variables": 
   [
@@ -36,6 +37,7 @@ body:
   ]
 }
 ```
+### Request Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>200</kbd>
