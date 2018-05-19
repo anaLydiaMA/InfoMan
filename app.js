@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
 var conversation = require('./API/src/routes/conversation_api');
-app.use('/conversation',conversation);
+app.use('/',conversation);
 
 app.listen(port, function(err){
   console.log('running on server on port:'+ port);
