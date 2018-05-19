@@ -1,8 +1,8 @@
 # InfoMan
 ## API
 ### URL = https://infoman-backend.mybluemix.net
-### **PATH = /conversation/form**
-#### **[POST]**  RETURNS CONVERSATION FORM
+#### **PATH = /conversation/form**
+##### **POST**  ***RETURNS CONVERSATION FORM***
 ```
 body:
 {
