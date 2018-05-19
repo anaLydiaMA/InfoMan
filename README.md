@@ -44,5 +44,28 @@ Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-### [GET] https://infoman-backend.mybluemix.net/conversation/questions
+Method          | Path              | Description 
+--------------- | ------------------| -----------
+<kbd>GET</kbd> | */conversation/questions*| Returns all the conversation available questions
+### Request Status:
+Issue    | Status
+-------- | ---
+Successful| <kbd>200</kbd>
+Failed    | <kbd>400</kbd>
+##
+Method          | Path              | Description 
+--------------- | ------------------| -----------
+<kbd>GET</kbd> | */conversation/askWatson*| Returns Watson response to the specified question on body
+### Request Body:
+```
+{
+  "text": "question sample?"
+}
+```
+### Request Status:
+Issue    | Status
+-------- | ---
+Successful| <kbd>200</kbd>
+Failed    | <kbd>400</kbd>
+##
 ### [GET] https://infoman-backend.mybluemix.net/conversation/askWatson
