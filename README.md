@@ -1,7 +1,7 @@
 # InfoMan
 ### URL = https://infoman-backend.mybluemix.net
 #### **PATH = /conversation/form**
-##### **POST**  ***RETURNS CONVERSATION FORM***
+##### <i class="icon-pencil"></i> **POST**  ***RETURNS CONVERSATION FORM***
 ```
 body:
 {
