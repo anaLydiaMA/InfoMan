@@ -5,14 +5,14 @@
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */conversation/form*| Returns conversation updatable values
-# Request Body:
+##### Request Body:
 ```
 {
 	"username": "name",
 	"password": "pass"
 }
 ```
-# Request Status:
+##### Request Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
@@ -23,7 +23,7 @@ Unauthorized | <kbd>403</kbd>
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */conversation/update*| Update specified values on conversation
-# Request Body:
+##### Request Body:
 ```
 {
   "username": "name",
@@ -39,7 +39,7 @@ Method          | Path              | Description
   ]
 }
 ```
-# Request Status:
+##### Request Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>200</kbd>
@@ -50,7 +50,7 @@ Unauthorized | <kbd>403</kbd>
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>GET</kbd> | */conversation/questions*| Returns all the conversation available questions
-# Request Status:
+##### Request Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>200</kbd>
@@ -60,13 +60,13 @@ Failed    | <kbd>400</kbd>
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>GET</kbd> | */conversation/askWatson*| Returns Watson response to the specified question on body
-# Request Body:
+##### Request Body:
 ```
 {
   "text": "question sample?"
 }
 ```
-# Request Status:
+##### Request Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>200</kbd>
