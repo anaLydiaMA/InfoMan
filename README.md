@@ -3,8 +3,8 @@
 ##
 Method          | Path              | Description 
 --------------- | ------------------| -----------
-<kbd>POST</kbd> | ***/conversation/form***| *Returns conversation updatable values*
-## body:
+<kbd>POST</kbd> | */conversation/form*| Returns conversation updatable values
+### Request Body:
 ```
 {
 	"username": "name",
