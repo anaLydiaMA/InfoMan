@@ -11,6 +11,7 @@ Method          | Path              | Description
 	"password": "pass"
 }
 ```
+### Request Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
