@@ -11,7 +11,7 @@
 7. [User Removal](#user_removal)
 8. [All Users](#all_users)
 
-:one:
+:one: <a name="get_form"></a>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
@@ -30,7 +30,7 @@ Successful| <kbd>201</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:two:
+:two: <a name="update_form"></a>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
