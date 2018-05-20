@@ -12,8 +12,7 @@
 8. [All Users](#all_users)
 
 <a name="get_form"></a>
-:one:
-### Get Form: 
+### 1. Get Form: 
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
@@ -32,8 +31,9 @@ Successful| <kbd>201</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:two: <a name="update_form"></a>
 
+<a name="update_form"></a>
+### 2. Update Form
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */conversation/update*| Update specified values on conversation
