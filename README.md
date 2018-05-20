@@ -80,7 +80,7 @@ Failed    | <kbd>400</kbd>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
-<kbd>POST</kbd> | */user/list*| Returns the list of usernames registered on Database
+<kbd>POST</kbd> | */user/login*| Authenticates a user on Database
 #### Request Body:
 ```
 {
@@ -92,7 +92,6 @@ Method          | Path              | Description
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
-Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
 :six:
@@ -120,14 +119,33 @@ Unauthorized | <kbd>403</kbd>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
-<kbd>POST</kbd> | */user/delete/{id}*| Creates a user on Database
+<kbd>POST</kbd> | */user/delete/{id}*| Deletes a user on Database
 #### Request on Route:
 <kbd>id</kbd> : Username to delete from database
 #### Request Body:
 ```
 {
-	"username": "admin name",
-	"password": "admin pass"
+	"username": "name",
+	"password": "pass"
+}
+```
+#### Request Status:
+Issue    | Status
+-------- | ---
+Successful| <kbd>201</kbd>
+Failed    | <kbd>400</kbd>
+Unauthorized | <kbd>403</kbd>
+##
+:eight:
+
+Method          | Path              | Description 
+--------------- | ------------------| -----------
+<kbd>POST</kbd> | */user/list*| Returns the list of usernames registered on Database
+#### Request Body:
+```
+{
+	"username": "name",
+	"password": "pass"
 }
 ```
 #### Request Status:
