@@ -95,3 +95,23 @@ Successful| <kbd>201</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
+:six:
+
+Method          | Path              | Description 
+--------------- | ------------------| -----------
+<kbd>POST</kbd> | */user/create*| Creates a user on Database
+#### Request Body:
+```
+{
+	"username": "owner name",
+	"password": "owner pass",
+	"new_username: "user to create",
+	"new_password": "password to create"
+}
+```
+#### Request Status:
+Issue    | Status
+-------- | ---
+Successful| <kbd>201</kbd>
+Failed    | <kbd>400</kbd>
+Unauthorized | <kbd>403</kbd>
