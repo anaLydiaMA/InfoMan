@@ -34,7 +34,7 @@ app.post('/', function(req, res) {
     form:    userData
   }, (error, response, body) => {
     if (!error && response.statusCode == 200) res.render('feed');
-    else res.redirect('/');
+    else res.redirect('login');
   });
 });
 

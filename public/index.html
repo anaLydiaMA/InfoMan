@@ -26,18 +26,13 @@
 
 <body class="ibm">
 
-  <div id="pop-hover"></div>
-  <div id="pop-img">
-    <img src="img/v2Tut.jpg" alt="tutorial">
-    <div id="pop-close">X</div>
+  <img id="pop-up-img" src="/img/infoman.jpg" width="1" height="1">
+  <div id="pop-up-modal" class="pop-up-modal">
+    <span class="pop-up-close">&times;</span>
+    <img class="pop-up-modal-content" id="infoman">
+    <div id="pop-up-caption"></div>
   </div>
-
-  <div class="modal" id="myModal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="presentation">
-    <div id="caption"></div>
-  </div>
-
+  
   <script>
     var modal = document.getElementById('myModal');
     var img = document.getElementById('myImg');

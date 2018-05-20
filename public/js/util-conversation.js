@@ -1,11 +1,21 @@
 $(document).ready(function() {
-  $("#pop-hover").click(function() {
-    $(this).fadeOut();
-    $("#pop-img").fadeOut();
-  });
+  var popModal = document.getElementById('pop-up-modal');
 
-  $("#pop-close").click(function() {
-    $("#pop-hover").fadeOut();
-    $("#pop-img").fadeOut();
-  });
+  var popImg = document.getElementById('pop-up-img');
+  var popModalImg = document.getElementById('infoman')
+  var popCaptionText = document.getElementById('pop-up-caption');
+  popImg.onclick = function() {
+    popModal.style.display = "block";
+    popModalImg.src = this.src;
+    popCaptionText.innerHTML = this.alt;
+  }
+
+  var popSpan = document.getElementsByClassName('pop-up-close')[0];
+  popSpan.onclick = function() {
+    popModal.style.display = "none";
+  }
+
+  window.onload = function() {
+    document.getElementById('pop-up-img').click();
+  }
 });
