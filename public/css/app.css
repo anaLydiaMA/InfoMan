@@ -1,8 +1,3 @@
-/*
-*
-This code is the intellectual property of IBM GBS and is not to be used by non-GBS practitioners nor distributed outside of GBS engagements. For full usage guidelines refer to http://ibm.biz/innersourcing-consume-guidelines
-*
-*/
 .useful ul {
   position: relative;
   bottom: 10px;
@@ -157,6 +152,46 @@ a:hover,button:hover {
   width: 0.3125rem;
   height: 1.3125rem;
   line-height: 1.3125rem;
+}
+
+/* CSS for pop-up tutorial image */
+#pop-hover {
+  position: fixed;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  opacity: .6;
+}
+#pop-img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  background: #fff;
+  left: 50%;
+  top: 50%;
+  border-radius: 5px;
+  padding: 60px 0;
+  margin-left: -320px;
+  margin-top: -150px;
+  text-align: center;
+  box-shadow: 0 0 10px 0 #000;
+}
+#pop-close {
+  position:absolute;
+  background:black;
+  color:white;
+  right:-15px;
+  top:-15px;
+  border-radius:50%;
+  width:30px;
+  height:30px;
+  line-height:30px;
+  text-align:center;
+  font-size:8px;
+  font-weight:bold;
+  font-family:'Arial Black', Arial, sans-serif;
+  cursor:pointer;
+  box-shadow:0 0 10px 0 #000;
 }
 
 @font-face {

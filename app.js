@@ -1,15 +1,16 @@
 'use strict';
 
-const express = require('express'); // app server
+const watson = require('watson-developer-cloud');
+const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser'); // parser for post requests
+const express = require('express'); // app server
+const request = require('request');
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({
   extended: false
 })
 
-const watson = require('watson-developer-cloud');
 const app = express();
-const exphbs = require('express-handlebars');
 
 // Bootstrap application settings
 app.use(express.static('./public')); // load UI from public folder
@@ -26,9 +27,15 @@ app.get('/login', function(req, res) {
 });
 
 app.post('/', function(req, res) {
-  var {user, password} = {user: req.body.username, password: req.body.password};
-  if (user == "admin" && password == "tributologia") res.render('feed');
-  else res.send("¿A dónde crees que vas?");
+  let userData = {username: req.body.username, password: req.body.password};
+  request.post({
+    headers: {'content-type' : 'application/x-www-form-urlencoded'},
+    url:     'https://infoman-backend.mybluemix.net/user/login',
+    form:    userData
+  }, (error, response, body) => {
+    if (!error && response.statusCode == 200) res.render('feed');
+    else res.redirect('/');
+  });
 });
 
 // Calls admin page for feed InfoMan
