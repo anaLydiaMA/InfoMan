@@ -103,10 +103,31 @@ Method          | Path              | Description
 #### Request Body:
 ```
 {
-	"username": "owner name",
-	"password": "owner pass",
-	"new_username: "user to create",
-	"new_password": "password to create"
+	"username": "admin name",
+	"password": "admin pass",
+	"new_username: "new user's username",
+	"new_password": "new user's password"
+}
+```
+#### Request Status:
+Issue    | Status
+-------- | ---
+Successful| <kbd>201</kbd>
+Failed    | <kbd>400</kbd>
+Unauthorized | <kbd>403</kbd>
+##
+:seven:
+
+Method          | Path              | Description 
+--------------- | ------------------| -----------
+<kbd>POST</kbd> | */user/delete/{id}*| Creates a user on Database
+#### Request on Route:
+<kbd>id</kbd> : Username to delete from database
+#### Request Body:
+```
+{
+	"username": "admin name",
+	"password": "admin pass"
 }
 ```
 #### Request Status:
