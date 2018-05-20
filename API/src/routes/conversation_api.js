@@ -15,30 +15,20 @@ router.route('/conversation/questions')
   })
 
 router.route('/conversation/form')
-  .post(function(req, res) {
-    db.login(req.body.username,req.body.password).then(function() {
+  .get(function(req, res) {
       tools.getForm().then(function(completeForm) {
         res.status(200).send(completeForm);
       }).catch(function(err) {
         res.status(404).send({});
       })
-    }).catch(function(err) {
-      res.status(403).send({});
     })
-  })
 
 router.route('/conversation/update')
   .put(function(req, res) {
-    db.login(req.body.username,req.body.password).then(function() {
-      delete req.body.username;
-      delete req.body.password;
-      tools.updateForm(req.body).then(function(data) {
-        res.status(200).send(data);
-      }).catch(function(err) {
-        res.status(404).send({});
-      })
+    tools.updateForm(req.body).then(function(data) {
+      res.status(200).send(data);
     }).catch(function(err) {
-      res.status(403).send({});
+      res.status(404).send({});
     })
   })
 
@@ -96,9 +86,9 @@ router.route('/user/delete/:id')
 router.route('/user/login')
   .post(function(req, res) {
     db.login(req.body.username,req.body.password).then(function() {
-      res.status(200).send({});
+      res.status(200).send({"status": "authorized"});
     }).catch(function(err) {
-      res.status(403).send({});
+      res.status(403).send({"status": "authorized"});
     })
   })
 
