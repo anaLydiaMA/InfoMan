@@ -1,6 +1,5 @@
 # InfoMan
 ## URL = https://infoman-backend.mybluemix.net
-##
 ### Available Requests:
 1. [Get Form](#get_form)
 2. [Update Form](#update_form)
@@ -60,8 +59,8 @@ Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:three: <a name="all_questions"></a>
-
+<a name="all_questions"></a>
+### 3. All Questions
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>GET</kbd> | */conversation/questions*| Returns all the conversation available questions
@@ -71,8 +70,8 @@ Issue    | Status
 Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 ##
-:four: <a name="ask_watson"></a>
-
+<a name="ask_watson"></a>
+### 4. Ask Watson
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */conversation/askWatson*| Returns Watson response to the specified question on body
@@ -88,8 +87,8 @@ Issue    | Status
 Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 ##
-:five: <a name="authentication"></a>
-
+<a name="authentication"></a>
+### 5. Authentication
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */user/login*| Authenticates a user on Database
@@ -106,8 +105,8 @@ Issue    | Status
 Successful| <kbd>201</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:six: <a name="user_creation"></a>
-
+<a name="user_creation"></a>
+### 6. User Creation
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */user/create*| Creates a user on Database
@@ -127,8 +126,8 @@ Successful| <kbd>201</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:seven: <a name="user_removal"></a>
-
+<a name="user_removal"></a>
+### 7. User Removal
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */user/delete/{id}*| Deletes a user on Database
@@ -148,8 +147,8 @@ Successful| <kbd>201</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:eight: <a name="all_users"></a>
-
+<a name="all_users"></a>
+### 8. All Users
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>POST</kbd> | */user/list*| Returns the list of usernames registered on Database
