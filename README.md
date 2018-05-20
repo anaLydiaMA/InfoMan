@@ -58,7 +58,7 @@ Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:three:
+:three: <a name="all_questions"></a>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
@@ -69,7 +69,7 @@ Issue    | Status
 Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 ##
-:four:
+:four: <a name="ask_watson"></a>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
@@ -86,7 +86,7 @@ Issue    | Status
 Successful| <kbd>200</kbd>
 Failed    | <kbd>400</kbd>
 ##
-:five:
+:five: <a name="authentication"></a>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
@@ -104,7 +104,7 @@ Issue    | Status
 Successful| <kbd>201</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:six:
+:six: <a name="user_creation"></a>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
@@ -125,7 +125,7 @@ Successful| <kbd>201</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:seven:
+:seven: <a name="user_removal"></a>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
@@ -146,7 +146,7 @@ Successful| <kbd>201</kbd>
 Failed    | <kbd>400</kbd>
 Unauthorized | <kbd>403</kbd>
 ##
-:eight:
+:eight: <a name="all_users"></a>
 
 Method          | Path              | Description 
 --------------- | ------------------| -----------
