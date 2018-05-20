@@ -1,6 +1,16 @@
 # InfoMan
 ## URL = https://infoman-backend.mybluemix.net
 ##
+### Available Requests:
+1. [Get Form](#get_form)
+2. [Update Form](#update_form)
+3. [All Questions](#all_questions)
+4. [Ask Watson](#ask_watson)
+5. [Authentication](#authentication)
+6. [User Creation](#user_creation)
+7. [User Removal](#user_removal)
+8. [All Users](#all_users)
+
 :one:
 
 Method          | Path              | Description 
