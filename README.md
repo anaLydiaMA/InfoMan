@@ -1,7 +1,7 @@
 
 # InfoMan front-end development
 
-https://infoman-frontend.mybluemix.net/
+https://infoman.mybluemix.net/
 
 <h2>Watson Credentials Used</h2>
 <ul>
@@ -12,3 +12,5 @@ https://infoman-frontend.mybluemix.net/
 
 <h2>Workspace ID</h2>
 bbd83dd4-6a05-4644-80b0-7caf077af455
+
+<img src="public/img/qr-code.png" alt="">
