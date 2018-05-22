@@ -13,4 +13,4 @@ https://infoman.mybluemix.net/
 <h2>Workspace ID</h2>
 bbd83dd4-6a05-4644-80b0-7caf077af455
 
-<img src="public/img/qr-code.png" alt="">
+<img src="public/img/qr-code.png" width="80" height="80" alt="">
