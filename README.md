@@ -23,7 +23,7 @@ Method          | Path              | Description
 	"password": "pass"
 }
 ```
-#### Request Status:
+#### Response Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
@@ -52,7 +52,7 @@ Method          | Path              | Description
   ]
 }
 ```
-#### Request Status:
+#### Response Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>200</kbd>
@@ -64,7 +64,7 @@ Unauthorized | <kbd>403</kbd>
 Method          | Path              | Description 
 --------------- | ------------------| -----------
 <kbd>GET</kbd> | */conversation/questions*| Returns all the conversation available questions
-#### Request Status:
+#### Response Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>200</kbd>
@@ -81,7 +81,7 @@ Method          | Path              | Description
   "text": "question sample?"
 }
 ```
-#### Request Status:
+#### Response Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>200</kbd>
@@ -99,7 +99,7 @@ Method          | Path              | Description
 	"password": "pass"
 }
 ```
-#### Request Status:
+#### Response Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
@@ -119,7 +119,7 @@ Method          | Path              | Description
 	"new_password": "new user's password"
 }
 ```
-#### Request Status:
+#### Response Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
@@ -140,7 +140,7 @@ Method          | Path              | Description
 	"password": "pass"
 }
 ```
-#### Request Status:
+#### Response Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
@@ -159,7 +159,7 @@ Method          | Path              | Description
 	"password": "pass"
 }
 ```
-#### Request Status:
+#### Response Status:
 Issue    | Status
 -------- | ---
 Successful| <kbd>201</kbd>
